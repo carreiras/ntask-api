@@ -1,0 +1,13 @@
+{
+  "name": "ntask-api",
+  "version": "1.0.0",
+  "description": "API de gestão de tarefas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Ewerton Carreira",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
