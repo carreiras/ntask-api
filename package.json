@@ -9,6 +9,8 @@
   "author": "Ewerton Carreira",
   "dependencies": {
     "consign": "^0.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sequelize": "^6.8.0",
+    "sqlite3": "^5.0.2"
   }
 }
