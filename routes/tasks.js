@@ -3,12 +3,16 @@ module.exports = app => {
 
     app.route('/tasks')
             .all((req, res) => {
-                // middleware de pré-execução das rotas
                 delete req.body.id;
                 next();
             })
-            .get((req, res) => {
-                // "/tasks: lista tarefas
+            .get(async (req, res) => {
+                try {
+                    const result = await Tasks.findAll();
+                    res.json(result);
+                } catch (err) {
+                    res.status(412).json({msg: err.message});
+                }
             })
             .post((req, res) => {
                 // "/tasks: cadastra uma nova tarefa
