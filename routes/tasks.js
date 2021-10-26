@@ -4,6 +4,8 @@ module.exports = app => {
     app.route('/tasks')
             .all((req, res) => {
                 // middleware de pré-execução das rotas
+                delete req.body.id;
+                next();
             })
             .get((req, res) => {
                 // "/tasks: lista tarefas
@@ -15,6 +17,8 @@ module.exports = app => {
     app.route('/tasks/:id')
             .all((req, res) => {
                 // Middleware de pré-execução das rotas
+                delete req.body.id;
+                next();
             })
             .get((req, res) => {
                 // "/tasks/1: consulta uma tarefa
