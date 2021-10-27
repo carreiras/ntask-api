@@ -2,10 +2,6 @@ module.exports = app => {
     const Tasks = app.models.tasks;
 
     app.route('/tasks')
-        .all((req, res) => {
-            delete req.body.id;
-            next();
-        })
         .get(async (req, res) => {
             try {
                 const result = await Tasks.findAll();
@@ -24,10 +20,6 @@ module.exports = app => {
         });
 
     app.route('/tasks/:id')
-        .all((req, res) => {
-            delete req.body.id;
-            next();
-        })
         .get(async (req, res) => {
             try {
                 const { id } = req.params;
