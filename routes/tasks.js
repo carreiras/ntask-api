@@ -14,8 +14,13 @@ module.exports = app => {
                     res.status(412).json({msg: err.message});
                 }
             })
-            .post((req, res) => {
-                // "/tasks: cadastra uma nova tarefa
+            .post(async (req, res) => {
+                try {
+                    const result = await Tasks.create(req.body);
+                    res.json(result);
+                } catch (err) {
+                    res.tatus(412).json({msg: err.message});
+                }
             });
 
     app.route('/tasks/:id')
