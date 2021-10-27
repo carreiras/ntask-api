@@ -1,34 +1,34 @@
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require("sequelize");
 
-module.exports = app => {
-    const Users = app.db.define('Users', {
+module.exports = (app) => {
+    const Users = app.db.define("Users", {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
-            }
+                notEmpty: true,
+            },
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
-            }
+                notEmpty: true,
+            },
         },
         email: {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,
             validate: {
-                notEmpty: true
-            }
-        }
+                notEmpty: true,
+            },
+        },
     });
     return Users;
 };

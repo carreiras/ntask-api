@@ -3,7 +3,7 @@ module.exports = (app) => {
     const Tasks = app.models.tasks;
 
     Users.hasMany(Tasks);
-    Tasks.belongsTo(Users, {foreignKey: 'userId'});
+    Tasks.belongsTo(Users, { foreignKey: 'userId' });
 }
 
 

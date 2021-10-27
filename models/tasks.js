@@ -1,24 +1,24 @@
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require("sequelize");
 
-module.exports = app => {
-    const Tasks = app.db.define('Tasks', {
+module.exports = (app) => {
+    const Tasks = app.db.define("Tasks", {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         title: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
-            }
+                notEmpty: true,
+            },
         },
         done: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
-            defaultValue: false            
-        }
+            defaultValue: false,
+        },
     });
     return Tasks;
 };
