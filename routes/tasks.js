@@ -52,6 +52,13 @@ module.exports = app => {
             }
         })
         .delete((req, res) => {
-            // "/tasks/1: exclui uma tarefa
+            try {
+                const { id } = req.params;
+                const where = { id };
+                await Tasks.destroy(req.body, { where });
+                res.sendStatus(204);
+            } catch (err) {
+                res.status(412).json({ msg: err.message });
+            }
         });
 };
