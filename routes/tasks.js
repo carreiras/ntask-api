@@ -43,7 +43,7 @@ module.exports = app => {
                 res.status(412).json({ msg: err.message });
             }
         })
-        .delete((req, res) => {
+        .delete(async (req, res) => {
             try {
                 const { id } = req.params;
                 const where = { id };
