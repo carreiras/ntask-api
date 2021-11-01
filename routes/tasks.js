@@ -47,7 +47,7 @@ module.exports = app => {
             try {
                 const { id } = req.params;
                 const where = { id };
-                await Tasks.destroy(req.body, { where });
+                await Tasks.destroy( { where });
                 res.sendStatus(204);
             } catch (err) {
                 res.status(412).json({ msg: err.message });
