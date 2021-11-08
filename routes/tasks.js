@@ -29,10 +29,11 @@ module.exports = app => {
                 const {id} = req.params;
                 const where = {id, userId: req.user.id};
                 const result = await Tasks.findOne({where});
-                if (result)
+                if (result) {
                     res.json(result);
-                else
+                } else {
                     res.sendStatus(404);
+                }
             } catch (err) {
                 res.status(412).json({msg: err.message});
             }

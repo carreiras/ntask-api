@@ -43,6 +43,5 @@ module.exports = (app) => {
             }
         },
     });
-
     return Users;
 };
