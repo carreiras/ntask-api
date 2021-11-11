@@ -1,10 +1,10 @@
 const bcrypt = require('bcrypt');
-const jwt = require('jwt');
+const jwt = require('jwt-simple');
 const config = require('../config');
 
 module.exports = (app) => {
-    const bcrypt = require('bcrypt');
-    const jwt = require('jwt');
+    const Users = app.models.users;
+    const {secret}=config.jwt
 
     app.post('/token', async (req, res) => {
         try {

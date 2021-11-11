@@ -15,13 +15,6 @@ module.exports = (app) => {
                 notEmpty: true,
             },
         },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true,
-            },
-        },
         email: {
             type: DataTypes.STRING,
             unique: true,
@@ -41,7 +34,7 @@ module.exports = (app) => {
                 const password = bcrypt.hashSync(value, salt);
                 this.setDataValue('password', password);
             }
-        },
+        }
     });
     return Users;
 };
